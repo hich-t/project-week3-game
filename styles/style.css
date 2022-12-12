@@ -1,0 +1,94 @@
+@import url("https://fonts.google.com/specimen/Press+Start+2P");
+
+*,
+*::before,
+*::after {
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.score {
+  font-family: "Press Start 2P";
+  position: absolute;
+  font-size: 3vmin;
+  top: 5%;
+  left: 10%;
+}
+
+.lives {
+  font-family: "Press Start 2P";
+  position: absolute;
+  font-size: 3vmin;
+  top: 5%;
+}
+
+.start-screen {
+  font-family: "Press Start 2P";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.game {    
+  position : relative;
+  margin: auto auto;
+  background: url(/project-week3-game/Assets/bgBeach.png);
+  background-size: cover;
+  box-shadow: 1px 2px 60px rgba(0, 0, 0, 0.4);
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.hide {
+  display: none;&
+}
+
+.ground {
+  --left: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: calc(var(--left) * 1%);
+  border : 1px solid red;
+}
+
+
+#duck {
+  --bottom: 0;
+  position: relative;
+  left: 2%;
+  height: 15%;
+  bottom: calc(var(--bottom) * 1%); 
+}
+
+
+#obstacles {
+  position: absolute;
+  left: calc(var(--bottom) * 1%);
+  height: 15%;
+  bottom: 0;
+  background-color: blue; 
+}
+
+/* @keyframes jump {
+  0% {
+    top: 150px;
+  }
+  30% {
+    top: 100px;
+  }
+  70% {
+    top: 100px;
+  }
+  100% {
+    top: 150px;
+  }
+} */
