@@ -1,27 +1,36 @@
-let character = document.querySelector("[data-duck]")
-let obstacle = document.getElementById("obstacle")
 
-// function jump() {
-//     character.classList.add("animate")
-//     setTimeout(function(){
-//         character.classList.remove("animate")
-//         }, 500)
-// }
+const duck = document.querySelector('.character')
+let bottom = 0 
+let gravity = 0.9
 
-const speed = 0.05
-const groundElems = document.querySelectorAll("[data-ground]")
+function jump(){
+  let timerUpId = setInterval(function(){
+    if(bottom > 250){
+      clearInterval(timerId)
+      let timerDownId = setInterval(() => {
+if(bottom < 0){
+  clearInterval(timerDownId)
+}
+        bottom -=5
+        duck.style.bottom + 'px'
+      }, 20);
+    }
+      bottom +=30
+      bottom = bottom * gravity
+  duck.style.bottom = bottom + 'px'
+}, 20)
+}
 
-function setupGround() {
-    setCustomProperty(groundElems[0], "--left", 0)
-    setCustomProperty(groundElems[1], "--left", 300)
-  }
+jump()
 
-function updateGround(delta, speedScale) {
-    groundElems.forEach(ground => {
-      incrementCustomProperty(ground, "--left", delta * speedScale * speed * -1)
+function checkKey(e) {
+
+e = e || window.event;
   
-      if (getCustomProperty(ground, "--left") <= -300) {
-        incrementCustomProperty(ground, "--left", 600)
-      }
-    })
+if (e.keyCode === 32) {
+        jump()
+    }
+  
   }
+
+  document.addEventListener('keydown', checkKey)
