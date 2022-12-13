@@ -1,33 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
 
-</head>
-<body>
+    <div class="game">
+      <div class="score" data-score>Score : 0</div>
 
-<div class="game" data-game>
+      <div class="lives"></div>
 
-<div class="score" data-score>Score : 0</div>
+      <div class="start-screen" data-start-screen>Press Space to Start !!!</div>
 
-<div class="lives"></div>
 
-<div class="start-screen" data-start-screen>Press Space to Start !</div>
-
-    <img src="./Assets/groundBeach.png" alt="" class="ground" data-ground>
-
-    
-    <div class="character"><img src="./Assets/duckBeach.png" class="duck"></div>
-
-</div>
-<script src="./js/index.js"> type="module"</script>
-<script src="./js/duck.js"></script>
-<!-- <script src="./js/ground.js" type="module"></script> -->
-
-</body>
+      <div class="duck"></div>
+    </div>
+    <script src="./js/game.js"></script>
+    </script>
+  </body>
 </html>
