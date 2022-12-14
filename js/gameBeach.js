@@ -3,22 +3,15 @@
 const game_width = 100;
 const game_height = 70;
 
-
 const pressStart = document.querySelector(".start-screen");
 
-document.addEventListener("keydown", gameStart, { once: true })
+document.addEventListener("keydown", gameStart, { once: true });
 
 function gameStart() {
-
-
-  lastTime = null
-  pressStart.classList.add("hide")
-  generateObstacles(); 
-
+  lastTime = null;
+  pressStart.classList.add("hide");
+  generateObstacles();
 }
-
-
-
 
 const duckDiv = document.querySelector(".duck");
 const duckRect = duckDiv.getBoundingClientRect();
@@ -26,9 +19,6 @@ const duckRect = duckDiv.getBoundingClientRect();
 const gameElement = document.querySelector(".game");
 
 const gameRect = gameElement.getBoundingClientRect();
-
-
-
 
 setPixelToGameScale();
 window.addEventListener("resize", setPixelToGameScale);
@@ -157,65 +147,65 @@ function generateObstacles() {
       let duckRect = duckDiv.getBoundingClientRect();
       let duckBot = duckDiv.style.bottom;
 
-      document.querySelectorAll('.obstacle').forEach (obs => {
+      document.querySelectorAll(".obstacle").forEach((obs) => {
         let obstacleRect = obs.getBoundingClientRect();
 
         const condition1 =
           parseInt(duckBot) / obstacleRect.height > 0.96 &&
-          parseInt(duckBot) / obstacleRect.height < 1.05
+          parseInt(duckBot) / obstacleRect.height < 1.05;
 
         const condition2 =
-          duckRect.x / (obstacleRect.x - obstacleRect.width) >0.96 &&
-          duckRect.x / (obstacleRect.x - obstacleRect.width) < 1.05
-          // console.log("obs", duckRect.x)
-          // console.log("duck", obstacleRect.x)
-  
+          duckRect.x / (obstacleRect.x - obstacleRect.width) > 0.96 &&
+          duckRect.x / (obstacleRect.x - obstacleRect.width) < 1.05;
+        // console.log("obs", duckRect.x)
+        // console.log("duck", obstacleRect.x)
 
-              // (duckRect.right >= obstacleRect.right && duckRect.right <= obstacleRect.left 
-              //   && parseInt(duckBot) <= obstacleRect.height)
-        
-          if(condition2 && parseInt(duckBot) / obstacleRect.height >0.96){
-            console.log("ok");
-            myScore.innerText = `Score : ${score+=1}`;
-         //  && (duckRect.right<obstacleRect.left || duckRect.left>obstacleRect.right)
-         // } else if(duckRect.right<obstacleRect.left || duckRect.left>obstacleRect.right){
-         //   console.log("ok2");
-          }
-          else if(duckRect.right < obstacleRect.right && duckRect.right > obstacleRect.left &&  parseInt(duckBot) / obstacleRect.height < 0.96){
-            let gameOverText = document.createElement("div");
-            gameOverText.classList.add("game-over");
-            gameElement.appendChild(gameOverText);
-            gameOverText.innerHTML = "Game Over !!!  Press Space to Restart";
-            gameOver();
-          } else if (duckRect.left < obstacleRect.right && duckRect.left > obstacleRect.left &&  parseInt(duckBot) / obstacleRect.height < 0.96) {
-            let gameOverText = document.createElement("div");
-            gameOverText.classList.add("game-over");
-            gameElement.appendChild(gameOverText);
-            gameOverText.innerHTML = "Game Over !!!  Press Space to Restart";
-            gameOver();
-          }
-          else if (condition2){
-            let gameOverText = document.createElement("div");
-            gameOverText.classList.add("game-over");
-            gameElement.appendChild(gameOverText);
-            gameOverText.innerHTML = "Game Over !!!  Press Space to Restart";
-            gameOver();
-          }
-      })
+        // (duckRect.right >= obstacleRect.right && duckRect.right <= obstacleRect.left
+        //   && parseInt(duckBot) <= obstacleRect.height)
 
-      obstaclePosition -= 4; 
+        if (condition2 && parseInt(duckBot) / obstacleRect.height > 0.96) {
+          console.log("ok");
+          myScore.innerText = `Score : ${(score += 1)}`;
+        } else if (
+          duckRect.right < obstacleRect.right &&
+          duckRect.right > obstacleRect.left &&
+          parseInt(duckBot) / obstacleRect.height < 0.96
+        ) {
+          gameOver();
+        } else if (
+          duckRect.left < obstacleRect.right &&
+          duckRect.left > obstacleRect.left &&
+          parseInt(duckBot) / obstacleRect.height < 0.96
+        ) {
+          gameOver();
+        } else if (condition2) {
+          // let gameOverText = document.createElement("div");
+          // gameOverText.classList.add("game-over");
+          // gameElement.appendChild(gameOverText);
+          // gameOverText.innerHTML = "Game Over !!!  Press Space to Restart";
+          gameOver();
+        }
+      });
+
+      obstaclePosition -= 4;
       obstacle.style.left = `${obstaclePosition}px`;
     }, 20);
-  
-    setTimeout(generateObstacles, randomTime); 
-  } 
+
+    setTimeout(generateObstacles, randomTime);
+  }
 }
 
-// generateObstacles(); 
+// generateObstacles();
 
 function gameOver() {
+  myScore.innerHTML = "Haha you suck";
 
-  myScore.innerHTML = 'Haha you suck'
+
+  let gameOverText = document.createElement("div");
+  gameOverText.classList.add("game-over");
+  gameElement.appendChild(gameOverText);
+  gameOverText.innerHTML = "Game Over !!!<br>  Press Space to Restart";
+
   obsGenerate = false;
   document.querySelector(".obstacle").classList.add("hide");
   document.querySelector(".ball").classList.add("hide");
