@@ -49,11 +49,11 @@ body {
 .duck {
   margin-left: 5%;
   width: 100px;
-  height: 200px;
+  height: 125px;
   position: absolute;
   bottom: 20px;
   background-image: url(../Assets/duckBeach.png);
-  background-size: 110%;
+  background-size: 115%;
   background-position-y: 100%;
   background-repeat: no-repeat;
 }
@@ -69,14 +69,13 @@ body {
 .animate{
     animation: jump 500ms infinite;
     } */
-
 .parasol{
-  width: 200px;
-  height: 200px;
+  width: 110px;
+  height: 110px;
   position: absolute;
   bottom: 20px; 
   background-image: url(../Assets/parasol.png);
-  background-size: 70%;
+  background-size: 100%;
   background-position-y: 100%;
   background-repeat: no-repeat;
 }
@@ -84,12 +83,12 @@ body {
 
 
 .ball {
-  width: 100px;
-  height: 200px;
+  width: 75px;
+  height: 75px;
   position: absolute;
   bottom: 20px; 
   background-image: url(../Assets/beachBall.png);
-  background-size: 90%;
+  background-size: 100%;
   background-position-y: 100%;
   background-repeat: no-repeat;
 }
@@ -98,7 +97,7 @@ body {
 
     text-align: center;
     font-family: "Press Start 2P";
-    font-size: 60px;
+    font-size: 40px;
     position: absolute;
     top: 50%;
     left: 50%;
