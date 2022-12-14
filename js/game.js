@@ -3,15 +3,32 @@
 const game_width = 100;
 const game_height = 70;
 
+
+const pressStart = document.querySelector(".start-screen");
+
+document.addEventListener("keydown", gameStart, { once: true })
+
+function gameStart() {
+
+
+  lastTime = null
+  pressStart.classList.add("hide")
+  generateObstacles(); 
+
+}
+
+
+
+
 const duckDiv = document.querySelector(".duck");
 const duckRect = duckDiv.getBoundingClientRect();
 
 const gameElement = document.querySelector(".game");
-// const obstacleClass = document.querySelectorAll(".obstacle");
 
 const gameRect = gameElement.getBoundingClientRect();
 
-const pressStart = document.querySelector(".press-start");
+
+
 
 setPixelToGameScale();
 window.addEventListener("resize", setPixelToGameScale);
@@ -34,20 +51,20 @@ function setPixelToGameScale() {
 
 //Score
 
-let score = 1; //initialisation du score
-let n = 10000; //nombre final de points pour finir le niveau
+let score = 0; //initialisation du score
+// let n = 10000; //nombre final de points pour finir le niveau
 const myScore = document.querySelector(".score");
 
-function scoring() {
-  myScore.innerText = `Score : ${score++}`;
-  if (score < n) {
-    setTimeout(scoring, 100);
-  }
-  if (score === n) {
-    myScore.innerText = `CONGRATS! You succeed this level!`;
-  }
-}
-setTimeout(scoring, 100);
+// function scoring() {
+//   myScore.innerText = `Score : ${score++}`;
+//   if (score < n) {
+//     setTimeout(scoring, 100);
+//   }
+//   if (score === n) {
+//     myScore.innerText = `CONGRATS! You succeed this level!`;
+//   }
+// }
+// setTimeout(scoring, 100);
 
 //character
 
@@ -92,7 +109,7 @@ function slideLeft() {
 }
 
 function slideRight() {
-  if (left < 360) {
+  if (left < 800) {
     isGoingRight = true;
     if ((duckDiv.style.left = "200px")) {
       isGoingRight = false;
@@ -150,8 +167,8 @@ function generateObstacles() {
         const condition2 =
           duckRect.x / (obstacleRect.x - obstacleRect.width) >0.96 &&
           duckRect.x / (obstacleRect.x - obstacleRect.width) < 1.05
-          console.log("obs", duckRect.x)
-          console.log("duck", obstacleRect.x)
+          // console.log("obs", duckRect.x)
+          // console.log("duck", obstacleRect.x)
   
 
               // (duckRect.right >= obstacleRect.right && duckRect.right <= obstacleRect.left 
@@ -159,10 +176,25 @@ function generateObstacles() {
         
           if(condition2 && parseInt(duckBot) / obstacleRect.height >0.96){
             console.log("ok");
+            myScore.innerText = `Score : ${score+=1}`;
          //  && (duckRect.right<obstacleRect.left || duckRect.left>obstacleRect.right)
          // } else if(duckRect.right<obstacleRect.left || duckRect.left>obstacleRect.right){
          //   console.log("ok2");
-          } else (condition2){
+          }
+          else if(duckRect.right < obstacleRect.right && duckRect.right > obstacleRect.left &&  parseInt(duckBot) / obstacleRect.height < 0.96){
+            let gameOverText = document.createElement("div");
+            gameOverText.classList.add("game-over");
+            gameElement.appendChild(gameOverText);
+            gameOverText.innerHTML = "Game Over !!!  Press Space to Restart";
+            gameOver();
+          } else if (duckRect.left < obstacleRect.right && duckRect.left > obstacleRect.left &&  parseInt(duckBot) / obstacleRect.height < 0.96) {
+            let gameOverText = document.createElement("div");
+            gameOverText.classList.add("game-over");
+            gameElement.appendChild(gameOverText);
+            gameOverText.innerHTML = "Game Over !!!  Press Space to Restart";
+            gameOver();
+          }
+          else if (condition2){
             let gameOverText = document.createElement("div");
             gameOverText.classList.add("game-over");
             gameElement.appendChild(gameOverText);
@@ -179,9 +211,11 @@ function generateObstacles() {
   } 
 }
 
-generateObstacles(); 
+// generateObstacles(); 
 
 function gameOver() {
+
+  myScore.innerHTML = 'Haha you suck'
   obsGenerate = false;
   document.querySelector(".obstacle").classList.add("hide");
   document.querySelector(".ball").classList.add("hide");

@@ -84,7 +84,7 @@ body {
 
 .ball {
   width: 75px;
-  height: 75px;
+  height: 110px;
   position: absolute;
   bottom: 20px; 
   background-image: url(../Assets/beachBall.png);
