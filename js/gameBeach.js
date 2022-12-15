@@ -3,6 +3,7 @@
 const game_width = 100;
 const game_height = 70;
 
+//press any key to start
 const pressStart = document.querySelector(".start-screen");
 
 document.addEventListener("keydown", gameStart, { once: true });
@@ -35,9 +36,6 @@ function setPixelToGameScale() {
   gameElement.style.height = `${game_height * gameToPixelScale}px`;
 }
 
-//Press space to start:
-// document.body.onKeyup = function(e){
-//   if(e.keyCode === 32){
 
 //Score
 
@@ -90,7 +88,7 @@ function jump() {
 
 function slideLeft() {
   if (left > -40) {
-    isGoingLeft = true;
+    isGoingLeft = false;
     left -= 40;
     // console.log("going left");
     duckDiv.style.left = left + "px";
@@ -179,10 +177,6 @@ function generateObstacles() {
         ) {
           gameOver();
         } else if (condition2) {
-          // let gameOverText = document.createElement("div");
-          // gameOverText.classList.add("game-over");
-          // gameElement.appendChild(gameOverText);
-          // gameOverText.innerHTML = "Game Over !!!  Press Space to Restart";
           gameOver();
         }
       });
@@ -199,19 +193,33 @@ function generateObstacles() {
 
 function gameOver() {
   myScore.innerHTML = "Haha you suck";
-
-
   let gameOverText = document.createElement("div");
-  gameOverText.classList.add("game-over");
+  gameOverText.classList.add("game-over"); 
   gameElement.appendChild(gameOverText);
   gameOverText.innerHTML = "Game Over !!!<br>  Press Space to Restart";
-
   obsGenerate = false;
-  document.querySelector(".obstacle").classList.add("hide");
-  document.querySelector(".ball").classList.add("hide");
-  document.querySelector(".parasol").classList.add("hide");
-
-  document.querySelector(".score").classList.add("hide");
+  // document.querySelector(".obstacle").classList.add("hide");
+  // document.querySelector(".ball").classList.add("hide");
+  // document.querySelector(".parasol").classList.add("hide");
+  // document.querySelector(".score").classList.add("hide");
+document.querySelectorAll(".obstacle").forEach(e => e.remove());
+isJumping = false;
+isGoingRight = false;
+isGoingLeft = false;
+document.addEventListener("keyup", (e)=>{
+  if(e.keyCode === 32){
+    console.log('hello')
+    restart()
+  }
+})
 }
 
-// }}
+function restart(){
+score = 0;
+myScore.innerText = `Score : ${score}`; 
+obsGenerate = true;
+bottom = 0;
+duckDiv.style.left = "0px";
+document.querySelector(".game-over").remove();
+gameStart()
+};

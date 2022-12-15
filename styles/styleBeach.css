@@ -107,3 +107,7 @@ body {
 .hide {
     display: none;
 }
+
+.restart {
+border : 1px solid red;
+}
