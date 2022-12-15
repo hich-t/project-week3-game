@@ -8,11 +8,11 @@ const pressStart = document.querySelector(".start-screen");
 
 document.addEventListener("keydown", gameStart, { once: true });
 
+
 function gameStart() {
   lastTime = null;
   pressStart.classList.add("hide");
   generateObstacles();
-  checkCollision();
 }
 
 const duckDiv = document.querySelector(".duck");
@@ -81,7 +81,7 @@ function jump() {
       }, 40);
     }
     isJumping = true;
-    bottom += 10;
+    bottom += 20;
     bottom = bottom * gravity;
     duckDiv.style.bottom = bottom + "px";
   }, 40);
@@ -102,7 +102,7 @@ function slideRight() {
 }
 
 function control(e) {
-  if (e.keyCode === 32 || e.keyCode === 38) {
+  if (e.keyCode === 38) {
     jump();
   } else if (e.keyCode === 81 || e.keyCode === 37) {
     slideLeft();
@@ -120,7 +120,7 @@ function generateObstacles() {
   if (obsGenerate) {
     let randomObs = ["parasol", "ball"];
 
-   // let randomTime = Math.random() * 3000 + 2000;
+    let randomTime = Math.random() * 3000 + 2000;
 
     let obstaclePosition = 1000;
     const obstacle = document.createElement("div");
@@ -129,21 +129,10 @@ function generateObstacles() {
       randomObs[Math.floor(Math.random() * randomObs.length)]
     );
     gameElement.appendChild(obstacle);
+    obstacle.style.left = obstaclePosition + "px";
 
-    setInterval(function(){
-      obstacle.style.left = obstaclePosition + "px";
-      obstaclePosition -= 4;
-      if(obstaclePosition<500) {
-        document.querySelectorAll(".obstacle").splice(0,1);
-      }
-    },20)
-  }
-  // console.log(obstacleRect.left)
-  setTimeout(generateObstacles, Math.random() * 3000 + 2000);
-}
+    // console.log(obstacleRect.left)
 
-
-function checkCollision() {
     let timerId = setInterval(function () {
       const duckLeft = duckDiv.style.left;
       let duckRect = duckDiv.getBoundingClientRect();
@@ -184,9 +173,14 @@ function checkCollision() {
           gameOver();
         }
       });
-    }, 20);
-  }
 
+      obstaclePosition -= 4;
+      obstacle.style.left = `${obstaclePosition}px`;
+    }, 20);
+
+    setTimeout(generateObstacles, randomTime);
+  }
+}
 
 // generateObstacles();
 
@@ -226,3 +220,5 @@ duckDiv.style.left = "0px";
 document.querySelector(".game-over").remove();
 gameStart()
 };
+
+
