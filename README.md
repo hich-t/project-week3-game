@@ -14,6 +14,10 @@ The instructions are quite simple, avoid incoming obstacles by moving with Z & D
 
 There are 3 diffrent universes, each with its own Iron Duck ! Space Duck, Beach Duck and City Duck. Avoid all hazards as long as possible !
 
+Here is the link to the game :
+
+https://hich-t.github.io/project-week3-game/
+
 <img width="828" alt="Screenshot 2022-12-15 at 16 47 23" src="https://user-images.githubusercontent.com/118831065/207912372-e65b0de7-99b8-4037-9d41-42f7852fa6ab.png">
 
 
