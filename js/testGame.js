@@ -119,6 +119,10 @@
     }
     
     document.addEventListener("keydown", control);
+
+
+
+    
     
     let obsGenerate = true;
     

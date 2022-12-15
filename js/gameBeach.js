@@ -102,7 +102,7 @@ function slideRight() {
 }
 
 function control(e) {
-  if (e.keyCode === 38) {
+  if (e.keyCode === 32 || e.keyCode === 38) {
     jump();
   } else if (e.keyCode === 81 || e.keyCode === 37) {
     slideLeft();
@@ -208,17 +208,20 @@ document.addEventListener("keyup", (e)=>{
 }
 
 function restart(){
-isJumping = true;
-isGoingRight = true;
-isGoingLeft = true;
-score = 0;
-left = 0;
-myScore.innerText = `Score : ${score}`; 
-obsGenerate = true;
-bottom = 0;
-duckDiv.style.left = "0px";
-document.querySelector(".game-over").remove();
-gameStart()
-};
+  
+// left = 0;
+// bottom = 0;
+// isJumping = true;
+// isGoingRight = true;
+// isGoingLeft = true;
+// score = 0;
+// myScore.innerText = `Score : ${score}`; 
+// obsGenerate = true;
+// duckDiv.style.left = "0px";
+// gameStart()
 
+
+// document.querySelector(".game-over").remove();
+document.location.reload()
+};
 
