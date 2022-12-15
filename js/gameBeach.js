@@ -12,6 +12,7 @@ function gameStart() {
   lastTime = null;
   pressStart.classList.add("hide");
   generateObstacles();
+  checkCollision();
 }
 
 const duckDiv = document.querySelector(".duck");
@@ -57,11 +58,11 @@ const myScore = document.querySelector(".score");
 //character
 
 let bottom = 0;
-let gravity = 1.2;
+let gravity = 1.1;
 let isJumping = false;
 let left = 0;
-let isGoingRight = false;
-let isGoingLeft = false;
+let isGoingRight = true;
+let isGoingLeft = true;
 
 function jump() {
   if (isJumping) return;
@@ -80,30 +81,22 @@ function jump() {
       }, 40);
     }
     isJumping = true;
-    bottom += 20;
+    bottom += 10;
     bottom = bottom * gravity;
     duckDiv.style.bottom = bottom + "px";
   }, 40);
 }
 
 function slideLeft() {
-  if (left > -40) {
-    isGoingLeft = false;
+  if (left > -40 && isGoingLeft) {
     left -= 40;
-    // console.log("going left");
     duckDiv.style.left = left + "px";
-    // console.log(left)
   }
 }
 
 function slideRight() {
-  if (left < 800) {
-    isGoingRight = true;
-    if ((duckDiv.style.left = "200px")) {
-      isGoingRight = false;
-    }
+  if (left < 800 && isGoingRight) {
     left += 40;
-    // console.log("going right");
     duckDiv.style.left = left + "px";
   }
 }
@@ -127,7 +120,7 @@ function generateObstacles() {
   if (obsGenerate) {
     let randomObs = ["parasol", "ball"];
 
-    let randomTime = Math.random() * 3000 + 2000;
+   // let randomTime = Math.random() * 3000 + 2000;
 
     let obstaclePosition = 1000;
     const obstacle = document.createElement("div");
@@ -136,10 +129,21 @@ function generateObstacles() {
       randomObs[Math.floor(Math.random() * randomObs.length)]
     );
     gameElement.appendChild(obstacle);
-    obstacle.style.left = obstaclePosition + "px";
 
-    // console.log(obstacleRect.left)
+    setInterval(function(){
+      obstacle.style.left = obstaclePosition + "px";
+      obstaclePosition -= 4;
+      if(obstaclePosition<500) {
+        document.querySelectorAll(".obstacle").splice(0,1);
+      }
+    },20)
+  }
+  // console.log(obstacleRect.left)
+  setTimeout(generateObstacles, Math.random() * 3000 + 2000);
+}
 
+
+function checkCollision() {
     let timerId = setInterval(function () {
       const duckLeft = duckDiv.style.left;
       let duckRect = duckDiv.getBoundingClientRect();
@@ -180,14 +184,9 @@ function generateObstacles() {
           gameOver();
         }
       });
-
-      obstaclePosition -= 4;
-      obstacle.style.left = `${obstaclePosition}px`;
     }, 20);
-
-    setTimeout(generateObstacles, randomTime);
   }
-}
+
 
 // generateObstacles();
 
@@ -215,7 +214,11 @@ document.addEventListener("keyup", (e)=>{
 }
 
 function restart(){
+isJumping = true;
+isGoingRight = true;
+isGoingLeft = true;
 score = 0;
+left = 0;
 myScore.innerText = `Score : ${score}`; 
 obsGenerate = true;
 bottom = 0;
