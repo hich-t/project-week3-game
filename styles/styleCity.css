@@ -73,9 +73,9 @@ body {
 .animate{
     animation: jump 500ms infinite;
     } */
-.badGuy {
+.badguy {
   width: 110px;
-  height: 110px;
+  height: 130px;
   position: absolute;
   bottom: 20px; 
   background-image: url(../Assets/badguy.png);
@@ -86,12 +86,12 @@ body {
 
 
 
-.car {
-  width: 130px;
-  height: 40px;
+.death {
+  width: 90px;
+  height: 90px;
   position: absolute;
   bottom: 20px; 
-  background-image: url(../Assets/car.png);
+  background-image: url(../Assets/death.png);
   background-size: 100%;
   background-position-y: 100%;
   background-repeat: no-repeat;

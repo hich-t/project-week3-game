@@ -113,6 +113,10 @@ function control(e) {
     slideRight();
   }
 }
+let audioVol = document.querySelector('#audioVol')
+
+audioVol.volume = 0.05; 
+
 
 document.addEventListener("keydown", control);
 

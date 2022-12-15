@@ -3,6 +3,10 @@ const game_width = 100;
 const game_height = 70;
 const gameElement = document.querySelector(".game");
 
+let audioVol = document.querySelector('#audioVol')
+
+audioVol.volume = 0.05; 
+
 // const thumbElem = document.querySelectorAll(".thumbs")
 
 // function thumbsBorder() {

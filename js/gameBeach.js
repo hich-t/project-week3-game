@@ -3,6 +3,10 @@
 const game_width = 100;
 const game_height = 70;
 
+let audioVol = document.querySelector('#audioVol')
+
+audioVol.volume = 0.05; 
+
 //press any key to start
 const pressStart = document.querySelector(".start-screen");
 
