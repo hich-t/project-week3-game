@@ -127,7 +127,7 @@
     // obstacles
     function generateObstacles() {
       if (obsGenerate) {
-        let randomObs = [".badGuy", "car"];
+        let randomObs = ["badGuy", "car"];
     
         let randomTime = Math.random() * 3000 + 2000;
     
@@ -208,8 +208,8 @@
     
       obsGenerate = false;
       document.querySelector(".obstacle").classList.add("hide");
-      document.querySelector(".ball").classList.add("hide");
-      document.querySelector(".parasol").classList.add("hide");
+      document.querySelector(".car").classList.add("hide");
+      document.querySelector(".badguy").classList.add("hide");
     
       document.querySelector(".score").classList.add("hide");
     }

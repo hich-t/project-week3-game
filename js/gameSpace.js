@@ -127,7 +127,7 @@
     // obstacles
     function generateObstacles() {
       if (obsGenerate) {
-        let randomObs = [".fusee", ".ovni"];
+        let randomObs = ["fusee", "ovni"];
     
         let randomTime = Math.random() * 3000 + 2000;
     
