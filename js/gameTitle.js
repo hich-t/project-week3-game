@@ -2,16 +2,17 @@
 const game_width = 100;
 const game_height = 70;
 const gameElement = document.querySelector(".game");
-const titleElem = document.querySelector(".thumbs")
 
-function thumbsBorder() {
-for (let i = 0 ; i < titleElem.length ; i++) {
-  titleElem[i].style.border = "8px solid #fffff ";
-  // titleElem[i].style.border-radius = "10%"
-}
-}
+// const thumbElem = document.querySelectorAll(".thumbs")
 
-titleElem.addEventListener("mouseover" , thumbsBorder)
+// function thumbsBorder() {
+// for (let i = 0 ; i < thumbElem.length ; i++) {
+//   thumbElem[i].style.borderColor = 'white';
+//   // thumbElem[i].style.border-radius = "10%"
+// }
+// }
+
+// titleElem.addEventListener("mouseover" , thumbsBorder)
 
 
 

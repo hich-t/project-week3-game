@@ -51,8 +51,17 @@ body {
   }
   .thumbs img {
 
-   
+   border: 8px solid black;
+   border-radius: 10%;
     width: 200px;
     height: 130px;
+
+  }
+
+  .thumbs img:hover {
+    border: 8px solid white;
+    border-radius: 10%;
+     width: 200px;
+     height: 130px;
 
   }
