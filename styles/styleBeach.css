@@ -28,14 +28,14 @@ body {
 }
 
 .start-screen {
-   text-align: center;
+  font-size: 17px;
+  text-align: center;
   font-family: "Press Start 2P";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  line-height: 20px;
-
+  line-height: 25px;
 }
 
 .game {
@@ -60,35 +60,22 @@ body {
   background-repeat: no-repeat;
 }
 
-/* 
-  @keyframes jump{
-    0%{top: 120px;}
-    30%{top: 120px;}
-    70%{top: 12px;}
-    100%{top: 120px;}
-}
-
-.animate{
-    animation: jump 500ms infinite;
-    } */
-.parasol{
+.parasol {
   width: 110px;
   height: 110px;
   position: absolute;
-  bottom: 20px; 
+  bottom: 20px;
   background-image: url(../Assets/parasol.png);
   background-size: 100%;
   background-position-y: 100%;
   background-repeat: no-repeat;
 }
 
-
-
 .ball {
   width: 75px;
   height: 110px;
   position: absolute;
-  bottom: 20px; 
+  bottom: 20px;
   background-image: url(../Assets/beachBall.png);
   background-size: 100%;
   background-position-y: 100%;
@@ -96,18 +83,17 @@ body {
 }
 
 .game-over {
-
-    text-align: center;
-    font-family: "Press Start 2P";
-    font-size: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: "Press Start 2P";
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .block {
@@ -118,9 +104,9 @@ body {
   right: 5%;
 }
 
-a{
+a {
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
-  color: white;
+  color: black;
 }

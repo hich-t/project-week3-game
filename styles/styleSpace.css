@@ -29,14 +29,15 @@ body {
 }
 
 .start-screen {
-   text-align: center;
+  text-align: center;
   font-family: "Press Start 2P";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  line-height: 20px;
+  line-height: 25px;
+  font-size: 17px;
 }
 
 .game {
@@ -61,35 +62,22 @@ body {
   background-repeat: no-repeat;
 }
 
-/* 
-  @keyframes jump{
-    0%{top: 120px;}
-    30%{top: 120px;}
-    70%{top: 12px;}
-    100%{top: 120px;}
-}
-
-.animate{
-    animation: jump 500ms infinite;
-    } */
 .fusee {
   width: 110px;
   height: 75px;
   position: absolute;
-  bottom: 20px; 
+  bottom: 20px;
   background-image: url(../Assets/fusee.png);
   background-size: 100%;
   background-position-y: 100%;
   background-repeat: no-repeat;
 }
 
-
-
 .ovni {
   width: 120px;
   height: 70px;
   position: absolute;
-  bottom: 20px; 
+  bottom: 20px;
   background-image: url(../Assets/ovni.png);
   background-size: 100%;
   background-position-y: 100%;
@@ -97,19 +85,18 @@ body {
 }
 
 .game-over {
-
-    text-align: center;
-    font-family: "Press Start 2P";
-    font-size: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white; 
+  text-align: center;
+  font-family: "Press Start 2P";
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .block {
@@ -121,17 +108,16 @@ body {
   color: white;
 }
 
-.block a{
+.block a {
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
-    color: white;
+  color: white;
 }
 
 .item {
-    width: 30px;
-    height: 30px;
-    color: black;
-    bottom: 100px;
-
+  width: 30px;
+  height: 30px;
+  color: black;
+  bottom: 100px;
 }
