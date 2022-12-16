@@ -36,7 +36,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  line-height: 20px;
+  line-height: 25px;
+  font-size: 17px;
 }
 
 .game {
