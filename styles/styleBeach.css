@@ -1,5 +1,12 @@
 @import url("https://fonts.google.com/specimen/Press+Start+2P");
 
+@font-face {
+  font-family: "Press Start 2P";
+  src: local("PressStart2P-Regular.ttf"),
+    url("../fonts/PressStart2P-Regular.ttf") format("truetype");
+}
+
+
 * {
   user-select: none;
 }

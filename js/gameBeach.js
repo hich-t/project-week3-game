@@ -1,4 +1,3 @@
-// document.addEventListener('DOMContentLoaded', () => {
 
 const game_width = 100;
 const game_height = 70;
@@ -152,11 +151,7 @@ function generateObstacles() {
         const condition2 =
           duckRect.x / (obstacleRect.x - obstacleRect.width) > 0.96 &&
           duckRect.x / (obstacleRect.x - obstacleRect.width) < 1.05;
-        // console.log("obs", duckRect.x)
-        // console.log("duck", obstacleRect.x)
-
-        // (duckRect.right >= obstacleRect.right && duckRect.right <= obstacleRect.left
-        //   && parseInt(duckBot) <= obstacleRect.height)
+    
 
         if (condition2 && parseInt(duckBot) / obstacleRect.height > 0.96) {
           console.log("ok");
@@ -195,10 +190,7 @@ function gameOver() {
   gameElement.appendChild(gameOverText);
   gameOverText.innerHTML = "Game Over !!!<br>  Press Space to Restart";
   obsGenerate = false;
-  // document.querySelector(".obstacle").classList.add("hide");
-  // document.querySelector(".ball").classList.add("hide");
-  // document.querySelector(".parasol").classList.add("hide");
-  // document.querySelector(".score").classList.add("hide");
+
 document.querySelectorAll(".obstacle").forEach(e => e.remove());
 isJumping = false;
 isGoingRight = false;
@@ -213,19 +205,7 @@ document.addEventListener("keyup", (e)=>{
 
 function restart(){
   
-// left = 0;
-// bottom = 0;
-// isJumping = true;
-// isGoingRight = true;
-// isGoingLeft = true;
-// score = 0;
-// myScore.innerText = `Score : ${score}`; 
-// obsGenerate = true;
-// duckDiv.style.left = "0px";
-// gameStart()
 
-
-// document.querySelector(".game-over").remove();
 document.location.reload()
 };
 
